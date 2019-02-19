@@ -32,18 +32,24 @@ app.get('/cypher', (req, res) =>{
 });
 
 app.get('/lotto', (req, res) => {
-  const { numbers: [] } = req.query;
-  const winner = (Math.floor(Math.random() * Math.floor(20)));
+  const numbers = req.query.numbers.map(val => parseInt( val, 10 ) );
   let ticket = [];
-  for (let i = 0; i < 6; i++) {
-    ticket.push(winner);
-    return ticket
-  }
 
+  for (let i = 0; i < 6; i++) {
+    ticket.push(Math.floor(Math.random() * Math.floor(20)));
+  }
   
-  console.log(winner, ticket);
-  res.send('Test is done');
-})
+  let filtered = ticket.filter(num => numbers.includes(num));
+  if (filtered.length === 6) {
+    res.send('Congratulations! You win $100!');
+  }
+  else if (filtered.length === 5) {
+    res.send('Congratulations, you win a free ticket');
+  }
+  else if (filtered.length <= 4) {
+    res.send('Sorry, you lose');}
+
+});
 
 
 app.listen(8000, () => {
