@@ -16,6 +16,29 @@ app.get('/sum', (req, res) => {
   res.send(`The sum of ${req1} and ${req2} equals ${sum}`);
 });
 
+app.get('/cypher', (req, res) =>{
+  const { text, shift } = req.query;
+  const textArray = text.split('');
+  const newString = textArray.map(letter => {
+    const code = letter.charCodeAt(0);
+    const convert = parseInt(shift, 10);
+    return String.fromCharCode(code + convert);
+
+  })
+  let newWord = newString.join('');
+  res.send(newWord);
+
+
+});
+
+app.get('/lotto', (req, res) => {
+  const { numbers=[] } = req.query;
+  const winner = (Math.floor(Math.random() * Math.floor(20)));
+  const ticket = []
+  
+  console.log(winner)
+})
+
 
 app.listen(8000, () => {
   console.log('Express server is listening on port 8000!');
