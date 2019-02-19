@@ -32,11 +32,17 @@ app.get('/cypher', (req, res) =>{
 });
 
 app.get('/lotto', (req, res) => {
-  const { numbers=[] } = req.query;
+  const { numbers: [] } = req.query;
   const winner = (Math.floor(Math.random() * Math.floor(20)));
-  const ticket = []
+  let ticket = [];
+  for (let i = 0; i < 6; i++) {
+    ticket.push(winner);
+    return ticket
+  }
+
   
-  console.log(winner)
+  console.log(winner, ticket);
+  res.send('Test is done');
 })
 
 
