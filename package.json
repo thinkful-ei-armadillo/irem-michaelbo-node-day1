@@ -1,0 +1,28 @@
+{
+  "name": "irem-michaelbo-node-day1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "nodeman": "^1.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkful-ei-armadillo/irem-michaelbo-node-day1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thinkful-ei-armadillo/irem-michaelbo-node-day1/issues"
+  },
+  "homepage": "https://github.com/thinkful-ei-armadillo/irem-michaelbo-node-day1#readme"
+}
